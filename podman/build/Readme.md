@@ -4,18 +4,19 @@
 ```
 while true
 do
-	date
-	sleep 2
+        date |tee /proc/$$/fd/1 >> /tmp/app.log
+        sleep 2
 done
 ```
 ## Create a file Named Containerfile with the below contents
 ```
 FROM alpine:latest
 RUN mkdir -p /app
+RUN mkdir -p /var/myapp/log
 COPY date.sh /app
 RUN chmod +x /app/date.sh
-ENTRYPOINT sh
-CMD /app/date.sh
+ENTRYPOINT ["sh"]
+CMD ["/app/date.sh"]
 ```
 ## Run the below command to build the image
 ```
