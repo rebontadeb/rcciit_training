@@ -21,3 +21,10 @@ CMD /app/date.sh
 ```
 podman build -t my-sample-app:v1 .
 ```
+## List the newly created image in the local repository
+```
+podman images 
+```
+```
+podman image ls 
+```
