@@ -1,6 +1,6 @@
 # INSTALL KUBERNETES USING KUBEADM
 
-## Pre-Requisites
+## Pre-Requisites [Detailed Steps Can Be Found Here](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 1. Compatible Linux host(s).
 2. First identify how many Leader nodes and How many Follower nodes are to be deployed.
 3. Ensure you are having `root` user access for these nodes.
@@ -10,7 +10,7 @@
 8. Certain [ports](#ports-need-to-be-available-by-default) are open on your machines.
 9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
 
-## Ports Need to be available by default.
+## Ports Need to be available by default across cluster nodes.
 Leader Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
@@ -25,3 +25,5 @@ Follower Nodes:
 | --------    | --------  | --------    | ---------------------   | ---------------     |
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Leader        |
 | TCP         | Inbound   | 30000-32767 | NodePort Services†      | All                 |
+
+## Install Container Runtime (CRI-O) [ CentOS / RHEL ]
