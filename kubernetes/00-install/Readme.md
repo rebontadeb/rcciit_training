@@ -7,7 +7,7 @@
 4. Ensure you are having internet access from these nodes.
 5. 2 GB or more of RAM per machine and 2 CPUs or more. (any less will leave little room for your apps).
 7. Unique hostname, MAC address, and product_uuid for every node.
-8. Certain [ports](#Ports Need to be available by default.) are open on your machines.
+8. Certain [ports](#ports-need-to-be-available-by-default) are open on your machines.
 9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
 
 ## Ports Need to be available by default.
