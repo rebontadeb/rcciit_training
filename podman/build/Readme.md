@@ -34,3 +34,5 @@ or
 ```
 podman image ls 
 ```
+
+[![Docker Repository on Quay](https://quay.io/repository/rebontadeb/training/my-sample-app/status "Docker Repository on Quay")](https://quay.io/repository/rebontadeb/training/my-sample-app)
