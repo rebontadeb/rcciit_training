@@ -1,7 +1,7 @@
 # INSTALL KUBERNETES USING KUBEADM
 
 * [Pre-Requisites](#pre-requisites-official-documentation)
-* [Install Container Runtime](#install-container-runtime-containerd--centos--rhel)
+* [Install Container Runtime](#install-container-runtime-containerd--centos--rhel-)
 * [Install kubeadm kubectl kubelet](#install-kubeadmkubectlkubelet)
 
 
