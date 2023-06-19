@@ -1,5 +1,10 @@
 # INSTALL KUBERNETES USING KUBEADM
 
+* [Pre-Requisites](#pre-requisites-official-documentation)
+* [Install Container Runtime](#install-container-runtime-containerd--centos--rhel)
+* [Install kubeadm kubectl kubelet](#install-kubeadmkubectlkubelet)
+
+
 ## Pre-Requisites [(Official Documentation)](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 1. Compatible Linux host(s).
 2. First identify how many Leader nodes and How many Follower nodes are to be deployed.
@@ -64,3 +69,5 @@ image-endpoint: unix:///var/run/containerd/containerd.sock
 timeout: 2
 ```
 * Run `crictl images` and  `crictl ps -a` to ensure containerd is successfully runing.
+
+## Install Kubeadm,Kubectl,Kubelet
