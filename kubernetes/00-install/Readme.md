@@ -71,7 +71,7 @@ timeout: 2
 ```
 * Run `crictl images` and  `crictl ps -a` to ensure containerd is successfully runing.
 
-## Install Kubeadm,Kubectl,Kubelet
+## Install Kubeadm ,Kubectl ,Kubelet
 
 ```
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
@@ -89,6 +89,14 @@ EOF
 ```
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+```
+* **Run the Below Command in Leader Node**
+```
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+sudo systemctl enable --now kubelet
+```
+* **Run the Below Command in Follower Node**
+```
+sudo yum install -y kubelet kubeadm --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
