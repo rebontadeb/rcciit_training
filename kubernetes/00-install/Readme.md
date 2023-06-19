@@ -8,6 +8,11 @@
 5. 2 GB or more of RAM per machine and 2 CPUs or more. (any less will leave little room for your apps).
 7. Unique hostname, MAC address, and product_uuid for every node.
 8. Certain ports are open on your machines.
+| Month    | Savings |
+| -------- | ------- |
+| January  | $250    |
+| February | $80     |
+| March    | $420    |
  * Leader Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
