@@ -5,6 +5,7 @@
 * [Install kubeadm kubectl kubelet](#install-kubeadm-kubectl-kubelet)
 * [Initialize cluster using `kubeadm`](#initialize-cluster-using-kubeadm)
 * [Install CNI](#install-cni-container-network-interface-for-the-cluser)
+* [Verify Installation](#verify-the-kubernetes-cluster-installation)
 
 
 
@@ -110,7 +111,7 @@ sudo systemctl enable --now kubelet
 ```
 kubeadm init --apiserver-advertise-address=10.184.42.29 --pod-network-cidr=192.168.0.0/16  --service-cidr=192.168.0.0/17
 ```
-* The above command will output a command like `kubeadm join ......`. Collect the same and run it in `Follower` Nodes.
+* The above command will output a command like `kubeadm join ......` Collect the same command and run it in `Follower` Nodes.
 
 ## Install CNI (Container Network Interface) for the cluser 
 
@@ -119,3 +120,13 @@ kubeadm init --apiserver-advertise-address=10.184.42.29 --pod-network-cidr=192.1
 ```
 kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
+
+## Verify the Kubernetes Cluster Installation
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+* Verify the cluster is working fine by using the below command.
+`kubectl get nodes` `kubectl get pods --all-namespaces`
