@@ -54,7 +54,8 @@ systemctl enable containerd
 
 systemctl status containerd
 ```
-* Download `crictl` executable for checking the successfull status of containerd
+
+* Download `crictl` executable for checking the successfull status of containerd [Official Documentation](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md)
 ```
 VERSION="v1.26.0" 
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-$VERSION-linux-amd64.tar.gz
