@@ -11,7 +11,7 @@
 9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
 
 ## Ports Need to be available by default.
- * Leader Nodes:
+Leader Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
 | TCP         | Inbound   | 6443        | Kubernetes API server   | All                 |
@@ -19,7 +19,7 @@
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Control plane |
 | TCP         | Inbound   | 10259       | kube-scheduler          | Self                |
 | TCP         | Inbound   | 10257       | kube-controller-manager | Self                |
- * Follower Nodes:
+Follower Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Leader        |
