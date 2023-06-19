@@ -34,26 +34,19 @@ Follower Nodes:
 
 ```
 dnf install -y  yum-utils device-mapper-persistent-data lvm2
-```
-```
+
 dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
-```
-```
+
 dnf update -y && dnf install -y containerd.io
-```
-```
+
 mkdir -p /etc/containerd
-```
-```
+
 containerd config default > /etc/containerd/config.toml# Restart containerd 
-```
-```
+
 systemctl restart containerd
-```
-```
+
 systemctl enable containerd
-```
-```
+
 systemctl status containerd
 ```
 * Download `crictl` executable for checking the successfull status of containerd
