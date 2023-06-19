@@ -34,7 +34,7 @@ Follower Nodes:
 
 
 ## Install Container Runtime (containerd) [ CentOS / RHEL ]
-This step needs to be followed on all nodes [Leader and Follower]
+**This step needs to be followed on all nodes [Leader and Follower]**
 * Steps to install containerd in [CentOS/RHEL]
 
 ```
@@ -55,7 +55,7 @@ systemctl enable containerd
 systemctl status containerd
 ```
 
-* Download `crictl` executable for checking the successfull status of containerd [Official Documentation](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md)
+* Download `crictl` executable for checking the successfull status of containerd | [Official Documentation](https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md)
 ```
 VERSION="v1.26.0" 
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-$VERSION-linux-amd64.tar.gz
@@ -72,3 +72,23 @@ timeout: 2
 * Run `crictl images` and  `crictl ps -a` to ensure containerd is successfully runing.
 
 ## Install Kubeadm,Kubectl,Kubelet
+
+```
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+```
+
+## Set SELinux in permissive mode (effectively disabling it)
+```
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+sudo systemctl enable --now kubelet
+```
