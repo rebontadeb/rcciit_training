@@ -1,6 +1,6 @@
 # INSTALL KUBERNETES USING KUBEADM
 
-## Pre-Requisites [Detailed Steps Can Be Found Here](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+## Pre-Requisites [(Official Documentation)](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 1. Compatible Linux host(s).
 2. First identify how many Leader nodes and How many Follower nodes are to be deployed.
 3. Ensure you are having `root` user access for these nodes.
@@ -24,6 +24,41 @@ Follower Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Leader        |
-| TCP         | Inbound   | 30000-32767 | NodePort Services†      | All                 |
+| TCP         | Inbound   | 30000-32767 | NodePort Services       | All                 |
 
-## Install Container Runtime (CRI-O) [ CentOS / RHEL ]
+
+
+## Install Container Runtime (containerd) [ CentOS / RHEL ]
+
+
+```
+dnf install -y  yum-utils device-mapper-persistent-data lvm2
+```
+```
+dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+```
+```
+dnf update -y && dnf install -y containerd.io
+```
+```
+mkdir -p /etc/containerd
+```
+```
+containerd config default > /etc/containerd/config.toml# Restart containerd 
+```
+```
+systemctl restart containerd
+```
+```
+systemctl enable containerd
+```
+```
+systemctl status containerd
+```
+
+Add the below lines in the file: `/etc/crictl.yaml`
+```
+runtime-endpoint: unix:///var/run/containerd/containerd.sock
+image-endpoint: unix:///var/run/containerd/containerd.sock
+timeout: 2
+```
