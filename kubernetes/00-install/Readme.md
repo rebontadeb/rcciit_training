@@ -102,12 +102,17 @@ sudo systemctl enable --now kubelet
 ```
 
 ## Initialize cluster using `kubeadm`
-* **Get The Leader Node IP Address**
-`ifconfig -a` or `hostname -i`
+* **Get The Leader Node IP Address** using the command `ifconfig -a` or `hostname -i`
 * Use the IP Address in `--apiserver-advertise-address` flag
 ```
 kubeadm init --apiserver-advertise-address=10.184.42.29 --pod-network-cidr=192.168.0.0/16  --service-cidr=192.168.0.0/17
 ```
-
+* The above command will output a command like `kubeadm join ......`. Collect the same and run it in `Follower` Nodes.
 
 ## Install CNI (Container Network Interface) for the cluser 
+
+* We are going to install Calico as a CNI in the cluster
+**Run the Below Command in Leader Node**
+```
+kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
+```
