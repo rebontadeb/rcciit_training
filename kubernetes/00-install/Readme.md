@@ -19,6 +19,7 @@ Leader Nodes:
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Control plane |
 | TCP         | Inbound   | 10259       | kube-scheduler          | Self                |
 | TCP         | Inbound   | 10257       | kube-controller-manager | Self                |
+
 Follower Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
