@@ -100,3 +100,14 @@ sudo systemctl enable --now kubelet
 sudo yum install -y kubelet kubeadm --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
 ```
+
+## Initialize cluster using `kubeadm`
+* **Get The Leader Node IP Address**
+`ifconfig -a` or `hostname -i`
+* Use the IP Address in `--apiserver-advertise-address` flag
+```
+kubeadm init --apiserver-advertise-address=10.184.42.29 --pod-network-cidr=192.168.0.0/16  --service-cidr=192.168.0.0/17
+```
+
+
+## Install CNI (Container Network Interface) for the cluser 
