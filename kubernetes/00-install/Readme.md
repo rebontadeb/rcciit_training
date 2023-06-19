@@ -8,11 +8,9 @@
 5. 2 GB or more of RAM per machine and 2 CPUs or more. (any less will leave little room for your apps).
 7. Unique hostname, MAC address, and product_uuid for every node.
 8. Certain ports are open on your machines.
-| Month    | Savings |
-| -------- | ------- |
-| January  | $250    |
-| February | $80     |
-| March    | $420    |
+9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
+
+## Ports Need to be available by default.
  * Leader Nodes:
 | Protocol    | Direction | Port Range  | Purpose                 | Used By             |
 | --------    | --------  | --------    | ---------------------   | ---------------     |
@@ -26,6 +24,3 @@
 | --------    | --------  | --------    | ---------------------   | ---------------     |
 | TCP         | Inbound   | 10250       | Kubelet API             | Self, Leader        |
 | TCP         | Inbound   | 30000-32767 | NodePort Services†      | All                 |
-
-9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
-
