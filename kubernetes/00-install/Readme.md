@@ -2,7 +2,10 @@
 
 * [Pre-Requisites](#pre-requisites-official-documentation)
 * [Install Container Runtime](#install-container-runtime-containerd--centos--rhel-)
-* [Install kubeadm kubectl kubelet](#install-kubeadmkubectlkubelet)
+* [Install kubeadm kubectl kubelet](#install-kubeadm-kubectl-kubelet)
+* [Initialize cluster using `kubeadm`](#initialize-cluster-using-kubeadm)
+* [Install CNI](#install-cni-container-network-interface-for-the-cluser)
+
 
 
 ## Pre-Requisites [(Official Documentation)](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
