@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  labels:
+    app: sample-app-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sample-app-label
+  template:
+    metadata:
+      labels:
+        app: sample-app-label
+    spec:
+      containers:
+      - name: sample-app
+        image: quay.io/rebontadeb/training/my-sample-app:v1   
