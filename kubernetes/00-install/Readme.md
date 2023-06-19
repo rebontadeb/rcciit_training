@@ -34,7 +34,7 @@ Follower Nodes:
 
 
 ## Install Container Runtime (containerd) [ CentOS / RHEL ]
-
+This step needs to be followed on all nodes [Leader and Follower]
 * Steps to install containerd in [CentOS/RHEL]
 
 ```
