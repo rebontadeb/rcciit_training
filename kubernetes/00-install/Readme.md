@@ -58,7 +58,8 @@ ping kube-follower
 
 * Turn off `swap` and disable firewall
 ```
-swapoff -a	
+swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 systemctl stop firewalld
 systemctl disable firewalld
 ```
