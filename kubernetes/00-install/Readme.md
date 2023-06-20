@@ -1,6 +1,7 @@
 # INSTALL KUBERNETES USING KUBEADM
 
 * [Pre-Requisites](#pre-requisites-official-documentation)
+* [Prepare The Nodes](#prepare-the-nodes)
 * [Install Container Runtime](#install-container-runtime-containerd--centos--rhel-)
 * [Install kubeadm kubectl kubelet](#install-kubeadm-kubectl-kubelet)
 * [Initialize cluster using `kubeadm`](#initialize-cluster-using-kubeadm)
@@ -14,7 +15,7 @@
 2. First identify how many Leader nodes and How many Follower nodes are to be deployed.
 3. Ensure you are having `root` user access for these nodes.
 4. Ensure you are having internet access from these nodes.
-5. 2 GB or more of RAM per machine and 2 CPUs or more. (any less will leave little room for your apps).
+5. 2 GB or more of RAM per machine and 2 CPUs or more. Resources of leader will be more than that of follower (any less will leave little room for your apps).
 7. Unique hostname, MAC address, and product_uuid for every node.
 8. Certain [ports](#ports-need-to-be-available-by-default) are open on your machines.
 9. Swap disabled. You MUST disable swap in order for the kubelet to work properly.
@@ -36,6 +37,31 @@ Follower Nodes:
 | TCP         | Inbound   | 30000-32767 | NodePort Services       | All                 |
 
 
+## Prepare the Nodes
+* Set hostnames for the nodes.
+```
+hostnamectl set-hostname kube-leader (on leader server)
+hostnamectl set-hostname kube-follower (on follower server)
+```
+
+* Get the IP Adress of all nodes by using `ifconfig -a` or `hostname -i` and run on all nodes.
+```
+echo "172.31.15.56 kube-leader" >> /etc/hosts
+echo "172.31.26.16 kube-follower" >> /etc/hosts	
+```
+
+* Check the `ping` utility.
+```
+ping kube-leader
+ping kube-follower
+```
+
+* Turn off `swap` and disable firewall
+```
+swapoff -a	
+systemctl stop firewalld
+systemctl disable firewalld
+```
 
 ## Install Container Runtime (containerd) [ CentOS / RHEL ]
 **This step needs to be followed on all nodes [Leader and Follower]**
