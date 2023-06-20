@@ -1,4 +1,4 @@
-# INSTALL KUBERNETES USING KUBEADM
+# INSTALL  KUBERNETES  USING  KUBEADM
 
 * [Pre-Requisites](#pre-requisites-official-documentation)
 * [Prepare The Nodes](#prepare-the-nodes)
@@ -135,6 +135,7 @@ sudo systemctl enable --now kubelet
 ## Initialize cluster using `kubeadm`
 * **Get The Leader Node IP Address** using the command `ifconfig -a` or `hostname -i`
 * Use the IP Address in `--apiserver-advertise-address` flag
+* The below command is used only in Leader Nodes
 ```
 kubeadm init --apiserver-advertise-address=10.184.42.29 --pod-network-cidr=192.168.0.0/16  --service-cidr=192.168.0.0/17
 ```
@@ -149,7 +150,7 @@ kubectl apply -f https://docs.projectcalico.org/v3.8/manifests/calico.yaml
 ```
 
 ## Verify the Kubernetes Cluster Installation
-
+* Run the below command only in leader nodes.
 ```
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
