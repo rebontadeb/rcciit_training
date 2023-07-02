@@ -7,6 +7,7 @@ podman tag my-sample-app:v1 quay.io/basics/my-sample-app:v1
 
 Here `basics` is the username of remote repository. 
 In this case check the username from your personal remote repository `quay.io` 
+
 ![title](images/quay-io-repository.png)
 
 or `docker.io`
