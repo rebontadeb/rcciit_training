@@ -1,4 +1,4 @@
-# PODMAN PUSH
+# PODMAN PUSH and PULL
 
 ## Push the existing tagged image with a new tag of your own repository.
 ```
@@ -13,3 +13,8 @@ In this case check the username from your personal remote repository `quay.io`
 or `docker.io`
 
 ![title](images/docker-hub-repository.png)
+
+## Once the Image is successfully pushed the image can be again pulled to the local registry from remote registry.
+```
+podman pull quay.io/basics/my-sample-app:v1 
+```
