@@ -21,6 +21,12 @@ or
 ```
 podman run -d docker.io/basics/my-sample-app:v1 
 ```
+If we want the container needs to be run with our own defined name we can run it like
+
+```
+podman run -d -n sample-app quay.io/basics/my-sample-app:v1 
+```
+
 
 ## LIST CONTAINERS : Use podman client to list running container or stopped or failed continer.
 ` podman ps ` -- For listing the running containers.
