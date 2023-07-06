@@ -1,4 +1,4 @@
-# PODMAN LOGIN TO REMOTE REGISTRY
+# PODMAN REMOTE REGISTRY
 
 ## use podman client to log in to remote registry .
 `podman login quay.io` or `podman login docker.io` 
