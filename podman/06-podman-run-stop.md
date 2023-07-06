@@ -35,16 +35,6 @@ podman run -d --name sample-app quay.io/basics/my-sample-app:v1
 ` podman ps -a ` -- For listing all the running,stopped or failed containers.
 
 ## START CONTAINERS : Use podman client to stop a running container.
-
-First we will grab the value of `CONTAINER ID` or `NAMES` from the command output of `podman ps`.
-Then use the respective value to stop the running container.
-
-`podman stop <value of CONTAINER ID>`
-or
-`podman stop <value of NAMES>`
-
-## STOP CONTAINERS : Use podman client to start a stopped container.
-
 First we will grab the value of `CONTAINER ID` or `NAMES` from the command output of `podman ps -a`.
 Then use the respective value to stop the running container.
 
@@ -52,3 +42,13 @@ Then use the respective value to stop the running container.
 or
 `podman start <value of NAMES>`
 
+
+## STOP CONTAINERS : Use podman client to start a stopped container.
+
+
+First we will grab the value of `CONTAINER ID` or `NAMES` from the command output of `podman ps`.
+Then use the respective value to stop the running container.
+
+`podman stop <value of CONTAINER ID>`
+or
+`podman stop <value of NAMES>`
