@@ -22,10 +22,10 @@ or
 podman run -d docker.io/basics/my-sample-app:v1 
 ```
 If we want the container needs to be run with our own defined name 
-we can run it using the `-n` flag.
+we can run it using the `--name` flag.
 
 ```
-podman run -d -n sample-app quay.io/basics/my-sample-app:v1 
+podman run -d --name sample-app quay.io/basics/my-sample-app:v1 
 ```
 
 
