@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: sample-app-rs 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-app-label
+  template:
+    metadata:
+      labels:
+        app: sample-app-label
+    spec:
+      containers:
+      - name: sample-app
+        image: quay.io/rebontadeb/training/my-sample-app:v1 
+
